@@ -1,0 +1,23 @@
+/* body selector here */
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1601370690183-1c7796ecec61?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlZW4lMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww');
+  background-size: cover;
+}
+
+/* main */
+
+.main {
+  text-align: center;
+  color: aliceblue;
+  margin-top: 150px;
+  font-size: xx-large;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* header */
+
+.header {
+  color: rgb(255, 208, 0);
+}
+
