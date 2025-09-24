@@ -10,6 +10,7 @@ const newEl = document.getElementById('new-el');
 
 let cards = [];
 let sum = 0;
+let isAlive = false;
 
 // random number function -> done
 
@@ -29,22 +30,14 @@ function getRandomNum() {
 startEl.addEventListener('click', startGame)
 
 function startGame() {
+  isAlive = true;
   let firstNum = getRandomNum()
   let secondNum = getRandomNum()
   cards = [firstNum, secondNum]
   sum = firstNum + secondNum
   cardsEl.textContent = "Cards: " + cards.join(' ')
   sumEl.textContent = "Sum: " + sum
-
-  // message el if else condition here
-
-  if (sum < 21) {
-    messageEl.textContent = `Do you want to draw a new card?`
-  } else if (sum === 21) {
-    messageEl.textContent = `Woohhhh! You got BlackJack!!`
-  } else {
-    messageEl.textContent = `You're busted! Try again`
-  }
+  renderGame()
 }; 
 
 // new card function 
@@ -52,13 +45,18 @@ function startGame() {
 newEl.addEventListener('click', newCard)
 
 function newCard() {
-  if(sum < 21) {
+  if(isAlive && sum < 21) {
   let newRandomCard = getRandomNum()
   cards.push(newRandomCard)
   sum += newRandomCard
   }
+  renderGame()
+}
 
-  cardsEl.textContent = "Cards: " + cards.join(' ')
+// renderGame function
+
+function renderGame () {
+ cardsEl.textContent = "Cards: " + cards.join(' ')
   sumEl.textContent = "Sum: " + sum
 
     if (sum < 21) {
@@ -69,5 +67,4 @@ function newCard() {
     messageEl.textContent = `You're busted! Try again by clicking on the Start Game`
   }
 }
-
 
