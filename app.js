@@ -24,8 +24,33 @@ function getRandomNum() {
   }
 };
 
-// start game function 
+// start game function with the event listener
 
+startEl.addEventListener('click', startGame)
 
+function startGame() {
+  let firstNum = getRandomNum()
+  let secondNum = getRandomNum()
+  cards = [firstNum, secondNum]
+  sum = firstNum + secondNum
+  cardsEl.textContent = "Cards: " + cards.join(' ')
+  sumEl.textContent = "Sum: " + sum
+
+  // message el if else condition here
+
+  if (sum < 21) {
+    messageEl.textContent = `Do you want to draw a new card?`
+  } else if (sum === 21) {
+    messageEl.textContent = `Woohhhh! You got BlackJack!!`
+  } else {
+    messageEl.textContent = `You're busted! Try again`
+  }
+}; 
+
+// new card function 
+
+function newCard() {
+  
+}
 
 
