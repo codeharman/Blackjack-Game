@@ -49,8 +49,25 @@ function startGame() {
 
 // new card function 
 
+newEl.addEventListener('click', newCard)
+
 function newCard() {
-  
+  if(sum < 21) {
+  let newRandomCard = getRandomNum()
+  cards.push(newRandomCard)
+  sum += newRandomCard
+  }
+
+  cardsEl.textContent = "Cards: " + cards.join(' ')
+  sumEl.textContent = "Sum: " + sum
+
+    if (sum < 21) {
+    messageEl.textContent = `Do you want to draw a new card?`
+  } else if (sum === 21) {
+    messageEl.textContent = `Woohhhh! You got BlackJack!!`
+  } else {
+    messageEl.textContent = `You're busted! Try again by clicking on the Start Game`
+  }
 }
 
 
